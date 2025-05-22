@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { getIconComponent, iconMap } from './icons';
+import { getIconComponent } from './icons';
 
 // Mock dos componentes de ícone
 vi.mock('svelte-icons/fa', () => ({
@@ -16,7 +16,7 @@ vi.mock('svelte-icons/fa', () => ({
 
 // Mock do iconMap para testes
 vi.mock('./icons', async (importOriginal) => {
-  const module = await importOriginal();
+  const module = await importOriginal() as any;
   return {
     ...module,
     iconMap: {
@@ -55,7 +55,7 @@ describe('Icons Utility', () => {
     const defaultIcon1 = getIconComponent('');
     expect(defaultIcon1).toBe('FaLink');
     
-    const defaultIcon2 = getIconComponent(undefined);
+    const defaultIcon2 = getIconComponent(undefined as any);
     expect(defaultIcon2).toBe('FaLink');
     
     const defaultIcon3 = getIconComponent('icone-inexistente');

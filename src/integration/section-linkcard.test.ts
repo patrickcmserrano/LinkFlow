@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { render } from '@testing-library/svelte';
 import Section from '../components/Section.svelte';
 import LinkCard from '../components/LinkCard.svelte';
 
@@ -18,6 +19,15 @@ vi.mock('../components/LinkCard.svelte', () => ({
 vi.mock('../components/Section.svelte', () => ({
   default: {
     render: (props: {name: string; color: string; links: Array<{title: string; url: string; icon: string}>}) => {
+      const mockLinkCard = {
+        render: (linkProps: {title: string; url: string; icon: string}) => ({
+          html: `<div data-testid="link-card" 
+                     data-title="${linkProps.title}" 
+                     data-url="${linkProps.url}"
+                     data-icon="${linkProps.icon}"></div>`
+        })
+      };
+      
       return {
         html: `
           <div class="section">
@@ -27,7 +37,7 @@ vi.mock('../components/Section.svelte', () => ({
             </div>
             <div class="section-content">
               ${props.links.map((link: {title: string; url: string; icon: string}) => 
-                  LinkCard.render({
+                  mockLinkCard.render({
                     title: link.title,
                     url: link.url,
                     icon: link.icon
@@ -52,17 +62,14 @@ describe('Integração Section e LinkCard', () => {
       { title: 'Link 2', url: 'https://example2.com', icon: 'linkedin-icon' },
       { title: 'Link 3', url: 'https://example3.com', icon: 'portfolio-icon' }
     ];
-
-    // Renderiza o componente Section sem usar testing-library
-    const { html } = Section.render({
-      name: 'Test Section',
-      color: '#E0F7FA',
-      links: mockLinks
+    // Renderiza o componente Section usando testing-library
+    const { container } = render(Section, {
+      props: {
+        name: 'Test Section',
+        color: '#E0F7FA',
+        links: mockLinks
+      }
     });
-
-    // Cria um elemento temporário para analisar o HTML
-    const container = document.createElement('div');
-    container.innerHTML = html;
 
     // Verifica se todos os links foram renderizados dentro da seção
     const linkCards = container.querySelectorAll('[data-testid="link-card"]');

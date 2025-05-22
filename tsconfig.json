@@ -3,5 +3,15 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": false,
+    "skipLibCheck": true,
+    "allowArbitraryExtensions": true
+  },
+  "exclude": [
+    "node_modules/svelte-icons/gi/GiHeadshot.svelte",
+    "node_modules/svelte-icons/gi/GiJetpack.svelte",
+    "node_modules/svelte-icons/gi/GiPawprint.svelte"
   ]
 }

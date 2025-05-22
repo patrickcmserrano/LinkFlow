@@ -13,8 +13,13 @@ declare module 'svelte-icons/fa' {
   export const FaLink: typeof SvelteComponentTyped<any>;
   export const FaBitcoin: typeof SvelteComponentTyped<any>;
   export const FaCogs: typeof SvelteComponentTyped<any>;
+  export const FaCog: typeof SvelteComponentTyped<any>;
   export const FaNewspaper: typeof SvelteComponentTyped<any>;
   export const FaTree: typeof SvelteComponentTyped<any>;
   export const FaSun: typeof SvelteComponentTyped<any>;
   export const FaMoon: typeof SvelteComponentTyped<any>;
+  export const FaLeaf: typeof SvelteComponentTyped<any>;
+  export const FaChartBar: typeof SvelteComponentTyped<any>;
+  export const FaDatabase: typeof SvelteComponentTyped<any>;
+  export const FaMoneyBillAlt: typeof SvelteComponentTyped<any>;
 }
