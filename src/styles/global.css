@@ -2,7 +2,6 @@
 @import '@skeletonlabs/skeleton';
 @import '@skeletonlabs/skeleton/optional/presets';
 @import '@skeletonlabs/skeleton/themes/mona';
-@custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
 
 /* Tema WebOasis para o LinkFlow */
 :root {
@@ -12,6 +11,11 @@
   --color-surface-100: #f1f5f9;
   --app-background: #ffffff;
   --app-text: #0f172a;
+  
+  /* Variáveis específicas para telas grandes */
+  --desktop-spacing-base: 1.5rem;
+  --desktop-border-radius: 0.75rem;
+  --desktop-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
 
 [data-mode="dark"] {
@@ -21,6 +25,9 @@
   --color-surface-100: #1e293b;
   --app-background: #0f172a;
   --app-text: #f8fafc;
+  
+  /* Variáveis específicas para telas grandes no modo escuro */
+  --desktop-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
 }
 
 /* Aplica as variáveis ao corpo do documento */

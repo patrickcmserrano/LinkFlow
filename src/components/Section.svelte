@@ -5,6 +5,7 @@
   export let name: string;
   export let color: string;
   export let links: Array<{ title: string; url: string; icon: string; }>;
+  export let layout: 'grid' | 'list' = 'list';
   
   // Store para controlar o estado de expansão/colapso
   const isExpanded = writable(true);
@@ -84,7 +85,10 @@
   </div>
   
   {#if $isExpanded}
-    <div class="section-content p-4 flex flex-col gap-4" style="background-color: {getContentBackgroundColor()}">
+    <div class="section-content p-4" 
+         class:grid-layout={layout === 'grid'} 
+         class:list-layout={layout === 'list'} 
+         style="background-color: {getContentBackgroundColor()}">
       {#each links as link}
         <LinkCard 
           title={link.title} 
@@ -99,6 +103,42 @@
 <style>
   .section {
     transition: all 0.3s ease;
+  }
+  
+  .section-content {
+    transition: all 0.3s ease;
+  }
+  
+  .list-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @media (min-width: 1280px) {
+    .grid-layout {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+  }
+  
+  @media (min-width: 1536px) {
+    .grid-layout {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
   
   .section-header {
