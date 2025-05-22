@@ -41,6 +41,7 @@
     "@skeletonlabs/skeleton-svelte": "^1.2.1",
     "@tailwindcss/vite": "^4.1.5",
     "svelte-i18n": "^4.0.1",
+    "svelte-icons": "^2.1.0",
     "svelte-motion": "^0.12.2",
     "svelte-spa-router": "^4.0.1"
   }

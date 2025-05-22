@@ -9,18 +9,30 @@
       "name": "Projetos",
       "color": "#7e22ce",
       "links": [
-        { "title": "Portfólio Blog", "url": "https://patrickcmserrano.github.io/portfolio-blog/", "icon": "/images/portfolio-icon.svg" },
-        { "title": "WebOasis", "url": "https://patrickcmserrano.github.io/weboasis/#/", "icon": "/images/weboasis-icon.svg" }
+        { "title": "Portfólio Blog", "url": "https://patrickcmserrano.github.io/portfolio-blog/", "icon": "home-icon" },
+        { "title": "WebOasis", "url": "https://patrickcmserrano.github.io/weboasis/#/", "icon": "lotus-icon" },
+        { "title": "MoneyFlow", "url": "https://patrickcmserrano.github.io/MoneyFlow", "icon": "moneyflow-icon", "description": "Explore o significado do dinheiro" },
+        { "title": "LinkFlowLotus", "url": "https://patrickcmserrano.github.io/LinkFlowLotus", "icon": "linkflow-icon", "description": "Links importantes da comunidade lotus" },
+        { "title": "BitcoinTracker", "url": "https://patrickcmserrano.github.io/BitcoinTracker", "icon": "bitcoin-icon", "description": "Rastreador de preço, volume e amplitude do bitcoin em tempo real" },
+        { "title": "GearGarage", "url": "https://patrickcmserrano.github.io/GearGarage/", "icon": "gear-icon", "description": "Visualizador 3D ThreeJS" }
+      ]
+    },
+    {
+      "name": "Blog",
+      "color": "#0ea5e9",
+      "links": [
+        { "title": "Anotações do Mercado Financeiro", "url": "https://patrickcmserrano.github.io/LinkFlowLotus/#/daily", "icon": "financial-post" },
+        { "title": "Árvores em Estruturas de Dados: Um Guia Completo", "url": "https://patrickcmserrano.github.io/portfolio-blog/blog/arvores", "icon": "data-structure-post" }
       ]
     },
     {
       "name": "Redes Sociais",
       "color": "#a855f7",
       "links": [
-        { "title": "LinkedIn", "url": "https://www.linkedin.com/in/patrickcmserrano/", "icon": "/images/linkedin-icon.svg" },
-        { "title": "GitHub", "url": "https://github.com/patrickcmserrano", "icon": "/images/github-icon.svg" },
-        { "title": "YouTube Pat Rocks", "url": "https://www.youtube.com/@pat_rocks", "icon": "/images/youtube-icon.svg" },
-        { "title": "YouTube CodeCraft", "url": "https://www.youtube.com/@codecraft_ofc", "icon": "/images/youtube-icon.svg" }
+        { "title": "LinkedIn", "url": "https://www.linkedin.com/in/patrickcmserrano/", "icon": "linkedin-icon" },
+        { "title": "GitHub", "url": "https://github.com/patrickcmserrano", "icon": "github-icon" },
+        { "title": "YouTube Pat Rocks", "url": "https://www.youtube.com/@pat_rocks", "icon": "youtube-icon" },
+        { "title": "YouTube CodeCraft", "url": "https://www.youtube.com/@codecraft_ofc", "icon": "youtube-icon" }
       ]
     }
   ]

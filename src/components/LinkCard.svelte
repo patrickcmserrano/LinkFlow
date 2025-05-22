@@ -1,8 +1,18 @@
 <script lang="ts">
+  import Icon from '../lib/Icon.svelte';
+  import { getIconComponent } from '../lib/icons';
+  
   export let title: string;
   export let url: string;
   export let icon: string;
   export let backgroundColor: string = "#F5F5F5";
+  
+  // Obtém o componente de ícone correto da biblioteca svelte-icons baseado no caminho do ícone
+  const iconComponent = getIconComponent(icon);
+  
+  // Para debug
+  console.log('Icon name:', icon);
+  console.log('Icon component:', iconComponent);
 </script>
 
 <a 
@@ -13,7 +23,7 @@
   style:background-color={backgroundColor}
 >
   <div class="icon-container w-11 h-11 flex-shrink-0 flex items-center justify-center">
-    <img src={icon} alt="" class="w-full h-full object-contain" loading="lazy" />
+    <Icon icon={iconComponent} size={24} color="var(--color-primary-500)" ariaLabel={title} />
   </div>
   <div class="link-title text-center flex-grow font-medium truncate">
     {title}

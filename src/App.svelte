@@ -5,7 +5,8 @@
   import Section from './components/Section.svelte';
   import { _ } from './lib/i18n';
   import { onMount } from 'svelte';
-  import { Link } from '@lucide/svelte';
+  import Icon from './lib/Icon.svelte';
+  import { FaLink } from 'svelte-icons/fa';
 
   // Inicializa o suporte a idiomas
   import { i18n } from './lib/i18n';
@@ -91,7 +92,7 @@
       </div>
       <div class="info-section">
         <div class="flex items-center justify-center md:justify-start gap-2 mb-2">
-          <Link size={24} class="text-blue-500" />
+          <Icon icon={FaLink} size={24} color="var(--color-primary-500)" />
           <h1 class="h1 text-2xl md:text-3xl font-bold">{$_('app.title')}</h1>
         </div>
         <p class="text-base opacity-80 max-w-xs mx-auto md:mx-0">{$_('app.subtitle')}</p>

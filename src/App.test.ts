@@ -44,7 +44,7 @@ vi.mock('./data/links.json', () => ({
         name: "Social",
         color: "#E0F7FA",
         links: [
-          { title: "LinkedIn", url: "https://linkedin.com", icon: "/images/linkedin-icon.svg" }
+          { title: "LinkedIn", url: "https://linkedin.com", icon: "linkedin-icon" }
         ]
       }
     ]

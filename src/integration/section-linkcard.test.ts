@@ -5,7 +5,7 @@ import LinkCard from '../components/LinkCard.svelte';
 // Mock do LinkCard para o teste de integração
 vi.mock('../components/LinkCard.svelte', () => ({
   default: {
-    render: (props) => ({
+    render: (props: {title: string; url: string; icon: string}) => ({
       html: `<div data-testid="link-card" 
                  data-title="${props.title}" 
                  data-url="${props.url}"
@@ -17,7 +17,7 @@ vi.mock('../components/LinkCard.svelte', () => ({
 // Mock do Section para o teste
 vi.mock('../components/Section.svelte', () => ({
   default: {
-    render: (props) => {
+    render: (props: {name: string; color: string; links: Array<{title: string; url: string; icon: string}>}) => {
       return {
         html: `
           <div class="section">
@@ -26,7 +26,7 @@ vi.mock('../components/Section.svelte', () => ({
               <span>▼</span>
             </div>
             <div class="section-content">
-              ${props.links.map(link => 
+              ${props.links.map((link: {title: string; url: string; icon: string}) => 
                   LinkCard.render({
                     title: link.title,
                     url: link.url,
@@ -48,9 +48,9 @@ describe('Integração Section e LinkCard', () => {
 
   it('deve renderizar todos os LinkCards dentro de uma Section', () => {
     const mockLinks = [
-      { title: 'Link 1', url: 'https://example1.com', icon: '/images/icon1.svg' },
-      { title: 'Link 2', url: 'https://example2.com', icon: '/images/icon2.svg' },
-      { title: 'Link 3', url: 'https://example3.com', icon: '/images/icon3.svg' }
+      { title: 'Link 1', url: 'https://example1.com', icon: 'github-icon' },
+      { title: 'Link 2', url: 'https://example2.com', icon: 'linkedin-icon' },
+      { title: 'Link 3', url: 'https://example3.com', icon: 'portfolio-icon' }
     ];
 
     // Renderiza o componente Section sem usar testing-library
