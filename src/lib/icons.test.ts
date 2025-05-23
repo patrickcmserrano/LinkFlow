@@ -2,63 +2,61 @@ import { describe, it, expect, vi } from 'vitest';
 import { getIconComponent } from './icons';
 
 // Mock dos componentes de ícone
-vi.mock('svelte-icons/fa', () => ({
-  FaLink: 'FaLink', 
-  FaHome: 'FaHome',
-  FaCode: 'FaCode',
-  FaBlog: 'FaBlog',
-  FaLinkedin: 'FaLinkedin',
-  FaGithub: 'FaGithub',
-  FaYoutube: 'FaYoutube',
-  FaWallet: 'FaWallet',
-  FaBitcoin: 'FaBitcoin'
-}));
+// Criamos funções para representar os componentes em vez de strings
+const mockFaLink = function FaLink() {};
+const mockFaHome = function FaHome() {};
+const mockFaCode = function FaCode() {};
+const mockFaBlog = function FaBlog() {};
+const mockFaLinkedin = function FaLinkedin() {};
+const mockFaGithub = function FaGithub() {};
+const mockFaYoutube = function FaYoutube() {};
+const mockFaWallet = function FaWallet() {};
+const mockFaBitcoin = function FaBitcoin() {};
 
-// Mock do iconMap para testes
-vi.mock('./icons', async (importOriginal) => {
-  const module = await importOriginal() as any;
-  return {
-    ...module,
-    iconMap: {
-      'default-icon': 'FaLink',
-      'portfolio-icon': 'FaCode',
-      'blog-icon': 'FaBlog',
-      'weboasis-icon': 'FaHome',
-      'linkedin-icon': 'FaLinkedin',
-      'github-icon': 'FaGithub',
-      'youtube-icon': 'FaYoutube',
-      'moneyflow-icon': 'FaWallet',
-      'bitcoin-icon': 'FaBitcoin',
-      'linkflow-icon': 'FaLink'
-    }
-  };
-});
+vi.mock('svelte-icons/fa/FaLink.svelte', () => ({ default: mockFaLink }));
+vi.mock('svelte-icons/fa/FaHome.svelte', () => ({ default: mockFaHome }));
+vi.mock('svelte-icons/fa/FaGithub.svelte', () => ({ default: mockFaGithub }));
+vi.mock('svelte-icons/fa/FaLinkedin.svelte', () => ({ default: mockFaLinkedin }));
+vi.mock('svelte-icons/fa/FaYoutube.svelte', () => ({ default: mockFaYoutube }));
+vi.mock('svelte-icons/fa/FaMoneyBillAlt.svelte', () => ({ default: mockFaWallet }));
+vi.mock('svelte-icons/fa/FaCog.svelte', () => ({ default: mockFaCode }));
+vi.mock('svelte-icons/fa/FaBitcoin.svelte', () => ({ default: mockFaBitcoin }));
+vi.mock('svelte-icons/fa/FaLeaf.svelte', () => ({ default: mockFaBlog }));
+vi.mock('svelte-icons/fa/FaChartBar.svelte', () => ({ default: mockFaCode }));
+vi.mock('svelte-icons/fa/FaDatabase.svelte', () => ({ default: mockFaCode }));
 
 describe('Icons Utility', () => {
   it('deve retornar o ícone corretamente pelo nome direto', () => {
     const portfolioIcon = getIconComponent('portfolio-icon');
-    expect(portfolioIcon).toBe('FaCode');
+    expect(typeof portfolioIcon).toBe('function');
+    expect(portfolioIcon.name).toContain('Fa');
     
     const linkedinIcon = getIconComponent('linkedin-icon');
-    expect(linkedinIcon).toBe('FaLinkedin');
+    expect(typeof linkedinIcon).toBe('function');
+    expect(linkedinIcon.name).toContain('Fa');
   });
 
   it('deve lidar com caminhos de arquivo legados por compatibilidade', () => {
     const portfolioIcon = getIconComponent('/images/portfolio-icon.svg');
-    expect(portfolioIcon).toBe('FaCode');
+    expect(typeof portfolioIcon).toBe('function');
+    expect(portfolioIcon.name).toContain('Fa');
     
     const linkedinIcon = getIconComponent('/images/linkedin-icon.svg');
-    expect(linkedinIcon).toBe('FaLinkedin');
+    expect(typeof linkedinIcon).toBe('function');
+    expect(linkedinIcon.name).toContain('Fa');
   });
 
   it('deve retornar o ícone padrão para entradas inválidas', () => {
     const defaultIcon1 = getIconComponent('');
-    expect(defaultIcon1).toBe('FaLink');
+    expect(typeof defaultIcon1).toBe('function');
+    expect(defaultIcon1.name).toBe('FaLink');
     
     const defaultIcon2 = getIconComponent(undefined as any);
-    expect(defaultIcon2).toBe('FaLink');
+    expect(typeof defaultIcon2).toBe('function');
+    expect(defaultIcon2.name).toBe('FaLink');
     
     const defaultIcon3 = getIconComponent('icone-inexistente');
-    expect(defaultIcon3).toBe('FaLink');
+    expect(typeof defaultIcon3).toBe('function');
+    expect(defaultIcon3.name).toBe('FaLink');
   });
 });

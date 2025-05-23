@@ -11,7 +11,7 @@ export default defineConfig({
     deps: {
       optimizer: {
         web: {
-          include: [/^svelte/, /@testing-library\/svelte/]
+          include: ['svelte', '@testing-library/svelte']
         }
       }
     },

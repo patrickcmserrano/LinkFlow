@@ -64,11 +64,9 @@ describe('Integração Section e LinkCard', () => {
     ];
     // Renderiza o componente Section usando testing-library
     const { container } = render(Section, {
-      props: {
-        name: 'Test Section',
-        color: '#E0F7FA',
-        links: mockLinks
-      }
+      name: 'Test Section',
+      color: '#E0F7FA',
+      links: mockLinks
     });
 
     // Verifica se todos os links foram renderizados dentro da seção

@@ -11,8 +11,8 @@
   const iconComponent = getIconComponent(icon);
   
   // Para debug
-  console.log('Icon name:', icon);
-  console.log('Icon component:', iconComponent);
+  // console.log('Icon name:', icon);
+  // console.log('Icon component:', iconComponent);
 </script>
 
 <a 

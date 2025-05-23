@@ -61,10 +61,12 @@ describe('Links Data', () => {
       });
     });
     
-    // Verifica se cada ícone segue um padrão esperado
+    // Verifica se cada ícone é uma string válida e corresponde a um dos padrões aceitos:
+    // - Pode ser um nome de ícone direto como 'home-icon'
+    // - Ou um caminho completo como '/images/icon.svg'
     iconPaths.forEach(path => {
       expect(typeof path).toBe('string');
-      expect(path).toMatch(/^\/images\/.*\.(svg|png|jpg|jpeg|gif)$/i);
+      expect(path).toMatch(/^(\/images\/.*\.(svg|png|jpg|jpeg|gif)$|[a-z0-9-_]+$)/i);
     });
   });
 });
