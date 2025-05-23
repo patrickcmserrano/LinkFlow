@@ -29,3 +29,23 @@ dist/
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# E2E Testing
+test-results/
+playwright-report/
+**/test-results/
+**/playwright-report/
+**/test-output/
+**/e2e/screenshots/
+**/e2e/videos/
+**/.auth/
+**/state.json
+**/.cache/
+
+# Playwright
+**/playwright/.cache/
+playwright-monkey-patch.cjs
+fix-playwright-*.sh
+fix-playwright-*.cjs
+fix-playwright-*.js
+run-*-playwright.sh

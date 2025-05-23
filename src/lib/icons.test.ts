@@ -1,29 +1,40 @@
 import { describe, it, expect, vi } from 'vitest';
 import { getIconComponent } from './icons';
 
-// Mock dos componentes de ícone
-// Criamos funções para representar os componentes em vez de strings
-const mockFaLink = function FaLink() {};
-const mockFaHome = function FaHome() {};
-const mockFaCode = function FaCode() {};
-const mockFaBlog = function FaBlog() {};
-const mockFaLinkedin = function FaLinkedin() {};
-const mockFaGithub = function FaGithub() {};
-const mockFaYoutube = function FaYoutube() {};
-const mockFaWallet = function FaWallet() {};
-const mockFaBitcoin = function FaBitcoin() {};
-
-vi.mock('svelte-icons/fa/FaLink.svelte', () => ({ default: mockFaLink }));
-vi.mock('svelte-icons/fa/FaHome.svelte', () => ({ default: mockFaHome }));
-vi.mock('svelte-icons/fa/FaGithub.svelte', () => ({ default: mockFaGithub }));
-vi.mock('svelte-icons/fa/FaLinkedin.svelte', () => ({ default: mockFaLinkedin }));
-vi.mock('svelte-icons/fa/FaYoutube.svelte', () => ({ default: mockFaYoutube }));
-vi.mock('svelte-icons/fa/FaMoneyBillAlt.svelte', () => ({ default: mockFaWallet }));
-vi.mock('svelte-icons/fa/FaCog.svelte', () => ({ default: mockFaCode }));
-vi.mock('svelte-icons/fa/FaBitcoin.svelte', () => ({ default: mockFaBitcoin }));
-vi.mock('svelte-icons/fa/FaLeaf.svelte', () => ({ default: mockFaBlog }));
-vi.mock('svelte-icons/fa/FaChartBar.svelte', () => ({ default: mockFaCode }));
-vi.mock('svelte-icons/fa/FaDatabase.svelte', () => ({ default: mockFaCode }));
+// Definindo factory functions para cada mock
+vi.mock('svelte-icons/fa/FaLink.svelte', () => {
+  return { default: function FaLink() {} };
+});
+vi.mock('svelte-icons/fa/FaHome.svelte', () => {
+  return { default: function FaHome() {} };
+});
+vi.mock('svelte-icons/fa/FaGithub.svelte', () => {
+  return { default: function FaGithub() {} };
+});
+vi.mock('svelte-icons/fa/FaLinkedin.svelte', () => {
+  return { default: function FaLinkedin() {} };
+});
+vi.mock('svelte-icons/fa/FaYoutube.svelte', () => {
+  return { default: function FaYoutube() {} };
+});
+vi.mock('svelte-icons/fa/FaMoneyBillAlt.svelte', () => {
+  return { default: function FaWallet() {} };
+});
+vi.mock('svelte-icons/fa/FaCog.svelte', () => {
+  return { default: function FaCode() {} };
+});
+vi.mock('svelte-icons/fa/FaBitcoin.svelte', () => {
+  return { default: function FaBitcoin() {} };
+});
+vi.mock('svelte-icons/fa/FaLeaf.svelte', () => {
+  return { default: function FaBlog() {} };
+});
+vi.mock('svelte-icons/fa/FaChartBar.svelte', () => {
+  return { default: function FaCode() {} };
+});
+vi.mock('svelte-icons/fa/FaDatabase.svelte', () => {
+  return { default: function FaCode() {} };
+});
 
 describe('Icons Utility', () => {
   it('deve retornar o ícone corretamente pelo nome direto', () => {
