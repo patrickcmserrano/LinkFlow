@@ -8,5 +8,5 @@ export default defineConfig({
     tailwindcss(),
     svelte(),
   ],
-  base: '/LinkFlow/', // Caminho base atualizado para LinkFlow
+  base: '/', // Caminho base atualizado para o domínio raiz patrickcmserrano.github.io
 });
